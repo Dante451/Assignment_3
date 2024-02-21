@@ -12,7 +12,8 @@ from time import sleep
 random_balance = random.randint(-1000, 10000)
 balance = round(random_balance, 2)
 locale.setlocale(locale.LC_ALL, '')
-
+#locale is an imported module that allows you to easily format numbers and data according to your region standards
+#LC_ALL means use all locale settings for formatting. In this case, it is using the North American formatting
 def deposit_protocol(balance):
     transaction_input = float(input("Enter amount of transaction: "))
     balance += transaction_input
