@@ -11,28 +11,33 @@ from time import sleep
 
 random_balance = random.randint(-1000, 10000)
 balance = round(random_balance, 2)
+locale.setlocale(locale.LC_ALL, '')
 
 def deposit_protocol(balance):
     transaction_input = float(input("Enter amount of transaction: "))
     balance += transaction_input
     print("*" * 40)
-    print("Successfully deposited funds")
-    print("Your current balance is: ", balance)
+    print(f'{"Successfully deposited funds": ^40}')
+    print("   Your current balance is:", locale.currency(balance, grouping = True))
+    print("*" * 40)
     return balance
 
 def withdraw_protocol(balance):
     transaction_input = float(input("Enter amount of transaction: "))
     if transaction_input > balance:
         print("*" * 40)
-        print("insufficient funds")
+        print(f'{"insufficient funds": ^40}')
+        print("*" * 40)
     else:
         balance -= transaction_input
         print("*" * 40)
-        print("Successfully withdrew funds")
-        print("Your current balance is: ", balance)
+        print(f'{"Successfully withdrew funds": ^40}')
+        print("   Your current balance is:", locale.currency(balance, grouping = True))
+        print("*" * 40)
     return balance
 
 def invalid_protocol():
+    print("*" * 40)
     print(f'{"Invalid selection": ^40}')
     print("*" * 40)
 
@@ -40,7 +45,7 @@ while True:
     print("*" * 40)
     print(f'{"PIXELL RIVER FINANCIAL" : ^40}')
     print(f'{"ATM Simulator" : ^40}')
-    print("  Your Current Balance Is:", balance)
+    print("  Your Current Balance Is:", locale.currency(balance, grouping = True))
     print("")
     print(f'{"Deposit: D" : ^40}')
     print(f'{"Withdraw: W" : ^40}')
