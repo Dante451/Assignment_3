@@ -12,3 +12,4 @@ with open("account_balances.txt", "r") as input_file:
         key, value = line.strip().split('|')
         balance_dictionary[key] = float(value)
 pretty.pprint(balance_dictionary)
+#Text to confirm repositories are connected
