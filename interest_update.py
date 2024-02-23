@@ -30,3 +30,10 @@ for acc in balance_dictionary:
 
 print("Updated balances: ")
 niceprint.pprint(balance_dictionary)
+
+with open("updated_balances_DD.csv", "w", newline="") as csvfile:
+    fieldnames = ["Account", "Balance"]
+    write = csv.DictWriter(csvfile, fieldnames = fieldnames)
+    write.writeheader()
+    for account, balance in balance_dictionary.items():
+        write.writerow({"Account": account, "Balance": balance})
