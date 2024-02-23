@@ -22,7 +22,7 @@ def deposit_protocol(balance):
     print("   Your current balance is:", locale.currency(balance, grouping = True))
     print("*" * 40)
     return balance
-
+#This function can add money to the current balance when called
 def withdraw_protocol(balance):
     transaction_input = float(input("Enter amount of transaction: "))
     if transaction_input > balance:
@@ -36,12 +36,13 @@ def withdraw_protocol(balance):
         print("   Your current balance is:", locale.currency(balance, grouping = True))
         print("*" * 40)
     return balance
-
+#This function removes money from the current balance when called,
+#and has an if/else check to make sure you don't withdraw more than is available 
 def invalid_protocol():
     print("*" * 40)
     print(f'{"Invalid selection": ^40}')
     print("*" * 40)
-
+#This function displays a message when anything other than D, W, Q is entered 
 while True:
     print("*" * 40)
     print(f'{"PIXELL RIVER FINANCIAL" : ^40}')
@@ -64,3 +65,7 @@ while True:
         invalid_protocol()
     sleep(3)
     os.system("cls" if os.name == "nt" else "clear")
+#This loop prints off an updating main menu with the current balance 
+#and acceptable selection options, then has a simple if/else statement
+#that calls the appropriate function to change the user's balance
+#and wipes the screen after three seconds 
